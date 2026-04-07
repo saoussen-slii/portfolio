@@ -91,7 +91,7 @@ export default function App() {
             </div>
           </aside>
         </section>
-        <ScrollReveal as="section" className="mt-14" y={22}>
+        <ScrollReveal as="section" className="mt-14">
           <section id="skills">
             <h2 className="text-lg font-semibold">Core competencies</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -99,7 +99,10 @@ export default function App() {
                 <CoreCompetency key={group.title} group={group} />
               ))}
             </div>
-
+          </section>
+        </ScrollReveal>
+        <ScrollReveal as="section" className="mt-14">
+          <section id="selected-technologies">
             <h3 className="mt-10 text-lg font-semibold">Selected technologies</h3>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {resume.selectedTechnologies.map((group) => (
@@ -108,7 +111,7 @@ export default function App() {
             </div>
           </section>
         </ScrollReveal>
-        <ScrollReveal as="section" className="mt-14" y={22} delay={0.05}>
+        <ScrollReveal as="section" className="mt-14">
           <section id="accomplishments">
             <h2 className="text-lg font-semibold">Key accomplishments</h2>
             <ul className="mt-5 space-y-3 text-sm text-stone-300">
@@ -118,7 +121,7 @@ export default function App() {
             </ul>
           </section>
         </ScrollReveal>
-        <ScrollReveal as="section" className="mt-14" y={22} delay={0.08}>
+        <ScrollReveal as="section" className="mt-14">
           <section id="experience">
             <h2 className="text-lg font-semibold">Experience</h2>
             <div className="mt-5 space-y-4">
@@ -128,7 +131,7 @@ export default function App() {
             </div>
           </section>
         </ScrollReveal>
-        <ScrollReveal as="section" className="mt-14" y={22} delay={0.1}>
+        <ScrollReveal as="section">
           <section id="education">
             <h2 className="text-lg font-semibold">Education</h2>
             <div className="mt-5 space-y-3">
@@ -141,7 +144,7 @@ export default function App() {
             </div>
           </section>
         </ScrollReveal>
-        <ScrollReveal as="section" className="mt-14" y={22} delay={0.12}>
+        <ScrollReveal as="section" className="mt-14">
           <section id="languages">
             <h2 className="text-lg font-semibold">Languages</h2>
             <div className="mt-5 flex flex-wrap gap-2">
