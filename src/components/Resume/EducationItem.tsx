@@ -11,11 +11,11 @@ export function EducationItem({ education }: EducationItemProps) {
         {education.credential}
         {education.program ? `, ${education.program}` : ''}
       </div>
-      <div className="mt-1 text-sm text-zinc-300">
+      <div className="mt-1 text-sm text-stone-300">
         {education.institution}
         {education.location ? ` · ${education.location}` : ''}
       </div>
-      {education.date ? <div className="mt-1 text-xs text-zinc-400">{education.date}</div> : null}
+      {education.date ? <div className="mt-1 text-xs text-stone-400">{education.date}</div> : null}
     </article>
   )
 }

@@ -12,7 +12,7 @@ export function CoreCompetency({ group }: CoreCompetencyProps) {
         {group.items.map((item) => (
           <li
             key={item}
-            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200"
+            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-stone-200"
           >
             {item}
           </li>
