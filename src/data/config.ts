@@ -15,7 +15,7 @@ export const portfolioConfig = {
 
   resume: {
     summary:
-      'Software Developer with 4+ years of experience delivering scalable web applications in the broadcast and live production domain. Expert in TypeScript, Java, and SQL, with a specialized focus on UI design, system integration, and continuous improvement using Agile, Scrum, and Toyota Kata methodologies. Recognized for technical rigor in utilizing AI-coding tools.',
+      'Bilingual Software Developer with 4+ years of experience delivering scalable web applications in the broadcast and live production domain. Expert in TypeScript, Java, and SQL, with a specialized focus on UI design, system integration, and continuous improvement using Agile, Scrum, and Toyota Kata methodologies. Recognized for technical rigor in utilizing AI-coding tools.',
 
     coreCompetencies: [
       {
