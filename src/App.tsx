@@ -28,17 +28,11 @@ export default function App() {
         </div>
 
         <nav className="hidden items-center gap-6 text-sm text-zinc-300 sm:flex">
-          <a className="hover:text-white" href="#summary">
-            Summary
-          </a>
           <a className="hover:text-white" href="#skills">
             Skills
           </a>
           <a className="hover:text-white" href="#experience">
             Experience
-          </a>
-          <a className="hover:text-white" href="#about">
-            About
           </a>
           <a className="hover:text-white" href="#contact">
             Contact
@@ -89,11 +83,6 @@ export default function App() {
               ))}
             </div>
           </aside>
-        </section>
-
-        <section id="summary" className="mt-14">
-          <h2 className="text-lg font-semibold">Summary</h2>
-          <p className="mt-4 max-w-prose text-sm text-zinc-300">{resume.summary}</p>
         </section>
 
         <section id="skills" className="mt-14">
@@ -214,14 +203,6 @@ export default function App() {
               </div>
             ))}
           </div>
-        </section>
-
-        <section id="about" className="mt-14">
-          <h2 className="text-lg font-semibold">About</h2>
-          <p className="mt-4 max-w-prose text-sm text-zinc-300">
-            This section is pulled from your config too—update `src/data/config.ts` to customize it
-            further (bio, featured projects, etc.).
-          </p>
         </section>
 
         <section id="contact" className="mt-14">
