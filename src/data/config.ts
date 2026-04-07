@@ -1,10 +1,4 @@
-import type {
-  Education,
-  Experience,
-  LanguageProficiency,
-  SkillGroup,
-  SocialLink,
-} from '../types'
+import type { Education, Experience, LanguageProficiency, SkillGroup, SocialLink } from '../types'
 
 export const portfolioConfig = {
   person: {
@@ -34,7 +28,12 @@ export const portfolioConfig = {
       },
       {
         title: 'System Design',
-        items: ['REST API Design','Domain-Driven Design (DDD)', 'Database Schema Design', 'UI/UX Innovation'],
+        items: [
+          'REST API Design',
+          'Domain-Driven Design (DDD)',
+          'Database Schema Design',
+          'UI/UX Innovation',
+        ],
       },
       {
         title: 'Quality Assurance',

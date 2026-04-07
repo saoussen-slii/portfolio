@@ -1,18 +1,20 @@
 import { Link as LinkIcon, Mail } from 'lucide-react'
 
+import {
+  CoreCompetency,
+  EducationItem,
+  ExperienceItem,
+  KeyAccomplishment,
+  SelectedTechnology,
+} from './components/Resume'
 import { portfolioConfig } from './data/config'
+import { returnEmailHref, returnInitials } from './utils'
 
 const { person, resume } = portfolioConfig
 
 export default function App() {
-  const initials = person.name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join('')
-
-  const emailHref = person.email.startsWith('mailto:') ? person.email : `mailto:${person.email}`
+  const initials = returnInitials(person.name)
+  const emailHref = returnEmailHref(person.email)
 
   return (
     <div className="min-h-dvh bg-zinc-950 text-zinc-100">
@@ -23,7 +25,9 @@ export default function App() {
           </div>
           <div className="leading-tight">
             <div className="font-semibold">{person.name}</div>
-            <div className="text-sm text-zinc-400">{person.headline}, {person.title}</div>
+            <div className="text-sm text-zinc-400">
+              {person.headline}, {person.title}
+            </div>
           </div>
         </div>
 
@@ -89,44 +93,14 @@ export default function App() {
           <h2 className="text-lg font-semibold">Core competencies</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {resume.coreCompetencies.map((group) => (
-              <article
-                key={group.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5"
-              >
-                <div className="font-semibold">{group.title}</div>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <CoreCompetency key={group.title} group={group} />
             ))}
           </div>
 
           <h3 className="mt-10 text-lg font-semibold">Selected technologies</h3>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {resume.selectedTechnologies.map((group) => (
-              <article
-                key={group.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5"
-              >
-                <div className="font-semibold">{group.title}</div>
-                <ul className="mt-3 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-200"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <SelectedTechnology key={group.title} group={group} />
             ))}
           </div>
         </section>
@@ -135,9 +109,7 @@ export default function App() {
           <h2 className="text-lg font-semibold">Key accomplishments</h2>
           <ul className="mt-5 space-y-3 text-sm text-zinc-300">
             {resume.keyAccomplishments.map((item) => (
-              <li key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                {item}
-              </li>
+              <KeyAccomplishment key={item} text={item} />
             ))}
           </ul>
         </section>
@@ -146,25 +118,7 @@ export default function App() {
           <h2 className="text-lg font-semibold">Experience</h2>
           <div className="mt-5 space-y-4">
             {resume.experience.map((job) => (
-              <article
-                key={`${job.company}-${job.role}-${job.start}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <div className="font-semibold">
-                    {job.role} · {job.company}
-                  </div>
-                  <div className="text-xs text-zinc-400">
-                    {job.start} – {job.end}
-                    {job.location ? ` · ${job.location}` : ''}
-                  </div>
-                </div>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-300">
-                  {job.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
-              </article>
+              <ExperienceItem key={`${job.company}-${job.role}-${job.start}`} job={job} />
             ))}
           </div>
         </section>
@@ -173,20 +127,10 @@ export default function App() {
           <h2 className="text-lg font-semibold">Education</h2>
           <div className="mt-5 space-y-3">
             {resume.education.map((ed) => (
-              <article
+              <EducationItem
                 key={`${ed.institution}-${ed.credential}-${ed.program ?? ''}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5"
-              >
-                <div className="font-semibold">
-                  {ed.credential}
-                  {ed.program ? `, ${ed.program}` : ''}
-                </div>
-                <div className="mt-1 text-sm text-zinc-300">
-                  {ed.institution}
-                  {ed.location ? ` · ${ed.location}` : ''}
-                </div>
-                {ed.date ? <div className="mt-1 text-xs text-zinc-400">{ed.date}</div> : null}
-              </article>
+                education={ed}
+              />
             ))}
           </div>
         </section>

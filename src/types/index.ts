@@ -1,7 +1,1 @@
-export type {
-    SocialLink,
-    SkillGroup,
-    Experience,
-    Education,
-    LanguageProficiency,
-  } from './types'
+export type { Education, Experience, LanguageProficiency, SkillGroup, SocialLink } from './types'
