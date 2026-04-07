@@ -8,6 +8,7 @@ import {
   SelectedTechnology,
 } from './components/Resume'
 import { ScrollReveal } from './components/ScrollReveal'
+import { VisitCounter } from './components/VisitCounter'
 import { portfolioConfig } from './data/config'
 import { returnEmailHref, returnInitials } from './utils'
 
@@ -166,6 +167,13 @@ export default function App() {
               {person.email.replace(/^mailto:/, '')}
             </a>
           </p>
+        </section>
+
+        <section id="visitors" className="mt-14" aria-label="Visitor statistics">
+          <h2 className="text-lg font-semibold">Visitors</h2>
+          <div className="mt-4">
+            <VisitCounter />
+          </div>
         </section>
       </main>
     </div>
