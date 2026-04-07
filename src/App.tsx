@@ -9,6 +9,8 @@ import {
 } from './components/Resume'
 import { portfolioConfig } from './data/config'
 import { returnEmailHref, returnInitials } from './utils'
+import { ScrollReveal } from './components/ScrollReveal'
+
 
 const { person, resume } = portfolioConfig
 
@@ -88,7 +90,7 @@ export default function App() {
             </div>
           </aside>
         </section>
-
+        <ScrollReveal as="section">
         <section id="skills" className="mt-14">
           <h2 className="text-lg font-semibold">Core competencies</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -104,7 +106,8 @@ export default function App() {
             ))}
           </div>
         </section>
-
+        </ScrollReveal>
+        <ScrollReveal as="section">
         <section id="accomplishments" className="mt-14">
           <h2 className="text-lg font-semibold">Key accomplishments</h2>
           <ul className="mt-5 space-y-3 text-sm text-zinc-300">
@@ -113,7 +116,8 @@ export default function App() {
             ))}
           </ul>
         </section>
-
+        </ScrollReveal>
+        <ScrollReveal as="section">
         <section id="experience" className="mt-14">
           <h2 className="text-lg font-semibold">Experience</h2>
           <div className="mt-5 space-y-4">
@@ -122,7 +126,8 @@ export default function App() {
             ))}
           </div>
         </section>
-
+        </ScrollReveal>
+        <ScrollReveal as="section">
         <section id="education" className="mt-14">
           <h2 className="text-lg font-semibold">Education</h2>
           <div className="mt-5 space-y-3">
@@ -134,7 +139,8 @@ export default function App() {
             ))}
           </div>
         </section>
-
+        </ScrollReveal>
+        <ScrollReveal as="section">
         <section id="languages" className="mt-14">
           <h2 className="text-lg font-semibold">Languages</h2>
           <div className="mt-5 flex flex-wrap gap-2">
@@ -148,7 +154,7 @@ export default function App() {
             ))}
           </div>
         </section>
-
+        </ScrollReveal>
         <section id="contact" className="mt-14">
           <h2 className="text-lg font-semibold">Contact</h2>
           <p className="mt-4 text-sm text-zinc-300">
