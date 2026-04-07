@@ -131,7 +131,7 @@ export default function App() {
             </div>
           </section>
         </ScrollReveal>
-        <ScrollReveal as="section">
+        <ScrollReveal as="section" className="mt-14">
           <section id="education">
             <h2 className="text-lg font-semibold">Education</h2>
             <div className="mt-5 space-y-3">
