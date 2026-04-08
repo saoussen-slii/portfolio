@@ -19,29 +19,29 @@ export default function App() {
   const emailHref = returnEmailHref(person.email)
 
   return (
-    <div className="min-h-dvh bg-stone-950 text-stone-100">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1200px_800px_at_20%_-10%,rgba(251,191,36,0.10),transparent_55%),radial-gradient(1000px_700px_at_90%_10%,rgba(244,63,94,0.07),transparent_55%),radial-gradient(900px_700px_at_50%_110%,rgba(45,212,191,0.06),transparent_60%)]" />
+    <div className="min-h-dvh bg-slate-950 text-slate-100">
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1000px_700px_at_15%_-5%,rgba(56,189,248,0.14),transparent_55%),radial-gradient(900px_600px_at_95%_5%,rgba(120,53,15,0.18),transparent_50%),radial-gradient(800px_500px_at_50%_100%,rgba(30,58,138,0.22),transparent_55%)]" />
       <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
         <div className="flex items-center gap-3">
-          <div className="grid size-10 place-items-center rounded-xl bg-white/5 font-semibold ring-1 ring-white/10">
+          <div className="grid size-10 place-items-center rounded-xl bg-sky-950/60 font-semibold text-amber-100 ring-1 ring-sky-500/25">
             {initials || 'YN'}
           </div>
           <div className="leading-tight">
-            <div className="font-semibold">{person.name}</div>
-            <div className="text-sm text-stone-400">
+            <div className="font-serif font-semibold tracking-tight">{person.name}</div>
+            <div className="text-sm text-slate-400">
               {person.headline}, {person.title}
             </div>
           </div>
         </div>
 
-        <nav className="hidden items-center gap-6 text-sm text-stone-300 sm:flex">
-          <a className="hover:text-stone-50" href="#skills">
+        <nav className="hidden items-center gap-6 text-sm text-slate-300 sm:flex">
+          <a className="hover:text-sky-200" href="#skills">
             Skills
           </a>
-          <a className="hover:text-stone-50" href="#experience">
+          <a className="hover:text-sky-200" href="#experience">
             Experience
           </a>
-          <a className="hover:text-stone-50" href="#contact">
+          <a className="hover:text-sky-200" href="#contact">
             Contact
           </a>
         </nav>
@@ -50,21 +50,21 @@ export default function App() {
       <main className="mx-auto max-w-5xl px-6 pb-20 pt-10">
         <section className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
           <div className="space-y-6">
-            <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="font-serif text-balance text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
               {person.location ? `${person.location} • ` : ''}
               {person.headline}
             </h1>
-            <p className="max-w-prose text-pretty text-stone-300">{resume.summary}</p>
+            <p className="max-w-prose text-pretty text-slate-300">{resume.summary}</p>
 
             <div className="flex flex-wrap items-center gap-3">
               <a
-                className="inline-flex items-center gap-2 rounded-xl bg-amber-300 px-4 py-2 text-sm font-medium text-stone-950 hover:bg-amber-200"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-sm font-medium text-amber-50 shadow-sm shadow-amber-950/40 hover:bg-amber-700"
                 href="#experience"
               >
                 View experience
               </a>
               <a
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-sm font-medium text-slate-100 hover:border-sky-400/40 hover:bg-sky-900/50"
                 href={emailHref}
               >
                 <Mail className="size-4" />
@@ -73,13 +73,13 @@ export default function App() {
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-white/10 bg-white/5 p-5">
-            <div className="text-sm font-semibold">Links</div>
+          <aside className="rounded-2xl border border-sky-500/20 bg-slate-900/60 p-5 ring-1 ring-amber-950/30">
+            <div className="text-sm font-semibold text-amber-100/90">Links</div>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               {person.socials.map((link) => (
                 <a
                   key={link.href}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-stone-100 hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-xl border border-sky-500/25 bg-sky-950/35 px-3 py-2 text-sm text-slate-100 hover:border-sky-400/35 hover:bg-sky-900/45"
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
@@ -93,7 +93,7 @@ export default function App() {
         </section>
         <ScrollReveal as="section" className="mt-14">
           <section id="skills">
-            <h2 className="text-lg font-semibold">Core competencies</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">Core competencies</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {resume.coreCompetencies.map((group) => (
                 <CoreCompetency key={group.title} group={group} />
@@ -103,7 +103,9 @@ export default function App() {
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="selected-technologies">
-            <h3 className="mt-10 text-lg font-semibold">Selected technologies</h3>
+            <h3 className="mt-10 font-serif text-lg font-semibold text-slate-50">
+              Selected technologies
+            </h3>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {resume.selectedTechnologies.map((group) => (
                 <SelectedTechnology key={group.title} group={group} />
@@ -113,8 +115,8 @@ export default function App() {
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="accomplishments">
-            <h2 className="text-lg font-semibold">Key accomplishments</h2>
-            <ul className="mt-5 space-y-3 text-sm text-stone-300">
+            <h2 className="font-serif text-lg font-semibold text-slate-50">Key accomplishments</h2>
+            <ul className="mt-5 space-y-3 text-sm text-slate-300">
               {resume.keyAccomplishments.map((item) => (
                 <KeyAccomplishment key={item} text={item} />
               ))}
@@ -123,7 +125,7 @@ export default function App() {
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="experience">
-            <h2 className="text-lg font-semibold">Experience</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">Experience</h2>
             <div className="mt-5 space-y-4">
               {resume.experience.map((job) => (
                 <ExperienceItem key={`${job.company}-${job.role}-${job.start}`} job={job} />
@@ -133,7 +135,7 @@ export default function App() {
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="education">
-            <h2 className="text-lg font-semibold">Education</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">Education</h2>
             <div className="mt-5 space-y-3">
               {resume.education.map((ed) => (
                 <EducationItem
@@ -146,12 +148,12 @@ export default function App() {
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="languages">
-            <h2 className="text-lg font-semibold">Languages</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">Languages</h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {resume.languages.map((l) => (
                 <div
                   key={l.language}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-stone-200"
+                  className="rounded-full border border-amber-800/35 bg-amber-950/40 px-3 py-1 text-xs text-amber-50/90"
                 >
                   {l.language} · {l.level}
                 </div>
@@ -160,11 +162,11 @@ export default function App() {
           </section>
         </ScrollReveal>
         <section id="contact" className="mt-14">
-          <h2 className="text-lg font-semibold">Contact</h2>
-          <p className="mt-4 text-sm text-stone-300">
+          <h2 className="font-serif text-lg font-semibold text-slate-50">Contact</h2>
+          <p className="mt-4 text-sm text-slate-300">
             Email:{' '}
             <a
-              className="underline decoration-amber-300/40 underline-offset-4 hover:text-amber-200"
+              className="text-sky-300 underline decoration-sky-500/50 underline-offset-4 hover:text-sky-200"
               href={emailHref}
             >
               {person.email.replace(/^mailto:/, '')}
@@ -173,7 +175,7 @@ export default function App() {
         </section>
 
         <section id="visitors" className="mt-14" aria-label="Visitor statistics">
-          <h2 className="text-lg font-semibold">Visitors</h2>
+          <h2 className="font-serif text-lg font-semibold text-slate-50">Visitors</h2>
           <div className="mt-4">
             <VisitCounter />
           </div>

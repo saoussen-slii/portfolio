@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+}
+
 html,
 body,
 #root {
@@ -8,4 +13,5 @@ body,
 
 body {
   margin: 0;
+  font-family: var(--font-sans);
 }

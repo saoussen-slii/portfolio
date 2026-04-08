@@ -6,13 +6,13 @@ type SelectedTechnologyProps = {
 
 export function SelectedTechnology({ group }: SelectedTechnologyProps) {
   return (
-    <article className="rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="font-semibold">{group.title}</div>
+    <article className="rounded-2xl border border-sky-500/20 bg-slate-900/50 p-5 ring-1 ring-amber-950/25">
+      <div className="font-serif font-semibold text-slate-50">{group.title}</div>
       <ul className="mt-3 flex flex-wrap gap-2">
         {group.items.map((item) => (
           <li
             key={item}
-            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-stone-200"
+            className="rounded-full border border-sky-600/25 bg-sky-950/40 px-3 py-1 text-xs text-slate-200"
           >
             {item}
           </li>

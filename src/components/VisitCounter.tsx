@@ -12,14 +12,20 @@ export function VisitCounter() {
   if (!imgSrc) {
     if (import.meta.env.PROD) return null
     return (
-      <p className="text-sm text-stone-500">
+      <p className="text-sm text-slate-500">
         Add{' '}
-        <code className="rounded bg-white/10 px-1.5 py-0.5 text-xs">
+        <code className="rounded bg-sky-950/60 px-1.5 py-0.5 text-xs text-slate-200 ring-1 ring-sky-500/25">
           VITE_VISIT_COUNTER_IMG_SRC
         </code>{' '}
-        to <code className="rounded bg-white/10 px-1.5 py-0.5 text-xs">.env</code> (see{' '}
-        <code className="rounded bg-white/10 px-1.5 py-0.5 text-xs">.env.example</code>) to show the
-        live counter.
+        to{' '}
+        <code className="rounded bg-sky-950/60 px-1.5 py-0.5 text-xs text-slate-200 ring-1 ring-sky-500/25">
+          .env
+        </code>{' '}
+        (see{' '}
+        <code className="rounded bg-sky-950/60 px-1.5 py-0.5 text-xs text-slate-200 ring-1 ring-sky-500/25">
+          .env.example
+        </code>
+        ) to show the live counter.
       </p>
     )
   }
@@ -30,7 +36,7 @@ export function VisitCounter() {
       alt="Visitor and country statistics"
       width={200}
       height={120}
-      className="max-w-full rounded-lg border border-white/10 bg-white/5 p-1"
+      className="max-w-full rounded-lg border border-sky-500/25 bg-slate-900/50 p-1"
       decoding="async"
     />
   )
@@ -41,7 +47,7 @@ export function VisitCounter() {
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60"
+        className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50"
         aria-label="Open visitor statistics (external site)"
       >
         {content}
