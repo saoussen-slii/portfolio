@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saoussen-portfolio.vercel.app/sitemap.xml
+Sitemap: https://saoussen-slii.vercel.app/sitemap.xml
