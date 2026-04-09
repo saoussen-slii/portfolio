@@ -1,4 +1,5 @@
-import { Link as LinkIcon, Mail } from 'lucide-react'
+import { Link as LinkIcon, Mail, Menu, X } from 'lucide-react'
+import { useState } from 'react'
 
 import {
   CoreCompetency,
@@ -14,38 +15,76 @@ import { returnEmailHref, returnInitials } from './utils'
 
 const { person, resume } = portfolioConfig
 
+const headerNavLinks = [
+  { href: '#skills', label: 'Skills' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#contact', label: 'Contact' },
+] as const
+
 export default function App() {
   const initials = returnInitials(person.name)
   const emailHref = returnEmailHref(person.email)
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
     <div className="min-h-dvh bg-slate-950 text-slate-100">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1000px_700px_at_15%_-5%,rgba(56,189,248,0.14),transparent_55%),radial-gradient(900px_600px_at_95%_5%,rgba(120,53,15,0.18),transparent_50%),radial-gradient(800px_500px_at_50%_100%,rgba(30,58,138,0.22),transparent_55%)]" />
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+      
         <div className="flex items-center gap-3">
           <div className="grid size-10 place-items-center rounded-xl bg-sky-950/60 font-semibold text-amber-100 ring-1 ring-sky-500/25">
             {initials || 'YN'}
           </div>
           <div className="leading-tight">
-            <div className="font-serif font-semibold tracking-tight">{person.name}</div>
-            <div className="text-sm text-slate-400">
-              {person.headline}, {person.title}
+            <div className="font-serif font-semibold tracking-tight text-slate-50">
+              {person.name}
+            </div>
+            <div className="text-xs text-slate-400">
+              {person.headline}
             </div>
           </div>
         </div>
 
-        <nav className="hidden items-center gap-6 text-sm text-slate-300 sm:flex">
-          <a className="hover:text-sky-200" href="#skills">
-            Skills
-          </a>
-          <a className="hover:text-sky-200" href="#experience">
-            Experience
-          </a>
-          <a className="hover:text-sky-200" href="#contact">
-            Contact
-          </a>
+      
+        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-300 sm:flex" aria-label="Primary">
+          {headerNavLinks.map(({ href, label }) => (
+            <a key={href} className="transition-colors hover:text-sky-300" href={href}>
+              {label}
+            </a>
+          ))}
         </nav>
-      </header>
+
+        <button
+          type="button"
+          className="inline-flex size-10 items-center justify-center rounded-lg border border-slate-500/60 bg-slate-900 text-slate-100 shadow-sm shadow-black/20 ring-1 ring-slate-400/20 hover:border-sky-400/50 hover:bg-slate-800 hover:text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:hidden"
+          aria-expanded={mobileNavOpen}
+          aria-controls="mobile-nav"
+          aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMobileNavOpen((open) => !open)}
+        >
+          {mobileNavOpen ? <X className="size-5" strokeWidth={2.25} /> : <Menu className="size-5" strokeWidth={2.25} />}
+        </button>
+      </div>
+
+      <div
+        id="mobile-nav"
+        className={`border-t border-slate-800/80 bg-slate-950/95 sm:hidden ${mobileNavOpen ? 'block' : 'hidden'}`}
+      >
+        <nav className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-3 text-sm font-medium text-slate-200" aria-label="Primary mobile">
+          {headerNavLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              className="rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-900 hover:text-sky-300"
+              href={href}
+              onClick={() => setMobileNavOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
 
       <main className="mx-auto max-w-5xl px-6 pb-20 pt-10">
         <section className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
