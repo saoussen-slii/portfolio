@@ -8,5 +8,4 @@ export {
   type PortfolioUiStrings,
 } from './locales/portfolio'
 
-/** English bundle; the live app uses `portfolioByLocale[locale]`. */
 export const portfolioConfig = portfolioByLocale.en
