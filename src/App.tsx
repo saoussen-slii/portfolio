@@ -29,13 +29,19 @@ export default function App() {
   return (
     <div className="min-h-dvh bg-slate-950 text-slate-100">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1000px_700px_at_15%_-5%,rgba(56,189,248,0.14),transparent_55%),radial-gradient(900px_600px_at_95%_5%,rgba(120,53,15,0.18),transparent_50%),radial-gradient(800px_500px_at_50%_100%,rgba(30,58,138,0.22),transparent_55%)]" />
-      <header className="sticky top-0 z-50 w-full border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md">
+      <header
+        className="sticky top-0 z-50 w-full border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md"
+      >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
       
         <div className="flex items-center gap-3">
-          <div className="grid size-10 place-items-center rounded-xl bg-sky-950/60 font-semibold text-amber-100 ring-1 ring-sky-500/25">
+          <a
+            href="#top-of-page"
+            className="grid size-10 place-items-center rounded-xl bg-sky-950/60 font-semibold text-amber-100 ring-1 ring-sky-500/25 transition-colors hover:bg-sky-900/70 hover:ring-sky-400/35"
+            aria-label="Back to top"
+          >
             {initials || 'YN'}
-          </div>
+          </a>
           <div className="leading-tight">
             <div className="font-serif font-semibold tracking-tight text-slate-50">
               {person.name}
@@ -88,7 +94,7 @@ export default function App() {
 
       <main className="mx-auto max-w-5xl px-6 pb-20 pt-10">
         <section className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
-          <div className="space-y-6">
+          <div className="space-y-6" id="top-of-page" >
             <h1 className="font-serif text-balance text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
               {person.location ? `${person.location} • ` : ''}
               {person.headline}

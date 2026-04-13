@@ -20,7 +20,7 @@ export const portfolioConfig = {
     coreCompetencies: [
       {
         title: 'Full-Stack Development',
-        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL'],
+        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'GraphQL', 'Material UI'],
       },
       {
         title: 'Agile Leadership',
@@ -44,6 +44,7 @@ export const portfolioConfig = {
           'PITest (Mutation Testing)',
           'SonarQube (Static Analysis)',
           'Jenkins (Build Monitoring)',
+          'Code Reviews'
         ],
       },
       {
@@ -70,6 +71,7 @@ export const portfolioConfig = {
           'Responsive Design',
           'WebSockets',
           'Redux',
+          'Tailwind'
         ],
       },
       {
@@ -163,7 +165,7 @@ export const portfolioConfig = {
       },
       {
         credential: 'Bachelor’s Degree',
-        program: 'Applied Computer Science for Management',
+        program: 'Computer Science',
         institution: 'Institut Supérieur de Gestion de Tunis',
         location: 'Tunisia',
         date: 'Jun 2007',
@@ -174,6 +176,7 @@ export const portfolioConfig = {
       { language: 'English', level: 'Professional Working' },
       { language: 'French', level: 'Professional Working' },
       { language: 'Arabic', level: 'Native' },
+      { language : 'Italian', level: 'Beginner' }
     ] satisfies LanguageProficiency[],
   },
 } as const
