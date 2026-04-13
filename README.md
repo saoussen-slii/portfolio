@@ -1,6 +1,6 @@
 # Portfolio
 
-A single-page developer portfolio built with **React**, **TypeScript**, and **Tailwind CSS**. Content is data-driven, the layout is responsive from phones to large desktops, and motion is used sparingly for scroll-based reveals. The production build is a static site suitable for edge hosting (for example **Vercel**, as referenced in the project’s metadata).
+A single-page developer portfolio built with **React**, **TypeScript**, and **Tailwind CSS**. Content is data-driven and available in **English** and **French**; the layout is responsive from phones to large desktops, and motion is used sparingly for scroll-based reveals. The production build is a static site suitable for edge hosting (for example **Vercel**, as referenced in the project’s metadata).
 
 ---
 
@@ -12,7 +12,7 @@ A single-page developer portfolio built with **React**, **TypeScript**, and **Ta
 - [Responsiveness & layout](#responsiveness--layout)
 - [Styling & typography](#styling--typography)
 - [Motion & accessibility](#motion--accessibility)
-- [Content & configuration](#content--configuration)
+- [Internationalization & content](#internationalization--content)
 - [Environment variables](#environment-variables)
 - [Development](#development)
 - [Build & preview](#build--preview)
@@ -29,6 +29,7 @@ A single-page developer portfolio built with **React**, **TypeScript**, and **Ta
 | **Bundling** | Vite 8 with `@vitejs/plugin-react` (Fast Refresh) |
 | **Quality** | ESLint (React, Hooks, jsx-a11y, import sorting) + Prettier |
 | **Icons** | Lucide React (tree-shakeable SVG icons) |
+| **i18n** | Full **EN** / **FR** locale bundles (`portfolioByLocale`); runtime switch with no extra libraries |
 
 ---
 
@@ -82,18 +83,22 @@ flowchart TB
   end
   subgraph app [Application]
     App[App.tsx]
+    Lang[LanguageDropdown]
     Resume[Resume components]
     ScrollReveal[ScrollReveal]
     VisitCounter[VisitCounter]
   end
   subgraph data [Data]
+    locales[data/locales/portfolio.ts]
     config[data/config.ts]
   end
   main --> App
+  App --> Lang
   App --> Resume
   App --> ScrollReveal
   App --> VisitCounter
   App --> config
+  config --> locales
 ```
 
 | Path | Role |
@@ -101,8 +106,10 @@ flowchart TB
 | `index.html` | Document shell, viewport meta, fonts, SEO/Open Graph, JSON-LD `Person` schema |
 | `src/main.tsx` | Bootstraps React and imports global styles |
 | `src/index.css` | Tailwind import + `@theme` font variables |
-| `src/App.tsx` | Page layout: header, hero, sections, footer-adjacent blocks |
-| `src/data/config.ts` | Central **portfolio content** (person, resume sections) |
+| `src/App.tsx` | Page layout: header (nav + **language menu**), hero, sections, visitor block |
+| `src/data/locales/portfolio.ts` | **Bilingual source of truth**: `en` / `fr` mirrors (person, resume, UI chrome strings) |
+| `src/data/config.ts` | Re-exports `portfolioByLocale`, `DEFAULT_LOCALE`, types; `portfolioConfig` = English bundle for compatibility |
+| `src/components/LanguageDropdown.tsx` | Accessible language **menu** (desktop + mobile drawer variants) |
 | `src/components/Resume/*` | Presentational blocks for competencies, jobs, education, etc. |
 | `src/components/ScrollReveal.tsx` | Reusable motion wrapper for sections |
 | `src/components/VisitCounter.tsx` | Optional embed driven by `VITE_*` env vars |
@@ -129,7 +136,7 @@ Tailwind’s responsive prefixes apply **min-width** media queries. Common ones 
 
 Patterns in `App.tsx` include:
 
-- **Header navigation** — Inline links use `hidden sm:flex` (hidden on small screens). A **mobile menu** (`sm:hidden` toggle button + collapsible panel) exposes the same anchor links with visible focus and hover states.
+- **Header navigation** — Inline links use `hidden sm:flex` (hidden on small screens). A **mobile menu** (`sm:hidden` toggle button + collapsible panel) exposes the same anchor links, the **language dropdown**, and visible focus/hover states.
 - **Hero** — Default single column; from `md:` upward, `md:grid-cols-[1.2fr_0.8fr]` places primary copy beside the “Links” card.
 - **Typography** — Headline scales with `text-4xl sm:text-5xl` for readability on narrow screens without overwhelming large displays.
 - **Grids** — Section grids use `sm:grid-cols-2` so cards flow in one column on phones and two when space allows.
@@ -137,7 +144,7 @@ Patterns in `App.tsx` include:
 
 ### Touch & interaction
 
-- Mobile nav links close the menu on navigate (`onClick` handler) to avoid a stuck-open panel after in-page jumps.
+- Mobile nav links close the menu on navigate (`onClick` handler) to avoid a stuck-open panel after in-page jumps. Choosing a language in the mobile **Language** menu also closes the drawer.
 - Buttons use `focus-visible` outlines for keyboard users.
 
 ---
@@ -154,14 +161,18 @@ Patterns in `App.tsx` include:
 
 - **ScrollReveal** animates opacity and position when sections enter the viewport (`whileInView`), with configurable `viewport` and easing.
 - **Semantic HTML** — `<header>`, `<main>`, `<section>`, `<nav>`, and heading levels structure the page.
-- **ARIA** — Mobile menu uses `aria-expanded`, `aria-controls`, and `aria-label` on the toggle; navigation regions have distinct `aria-label` values where multiple `<nav>` elements exist.
+- **ARIA** — Mobile menu uses `aria-expanded`, `aria-controls`, and `aria-label` on the toggle; navigation regions have distinct `aria-label` values where multiple `<nav>` elements exist. The language control uses `aria-haspopup="menu"`, `aria-expanded`, and `menuitemradio` options with `aria-checked` for the active locale.
+- **Document language** — When the locale changes, `App` updates **`document.documentElement.lang`** (`en` or `fr`) so the root `<html>` matches the visible language (assistive tech and browser language heuristics).
 - **Linting** — `eslint-plugin-jsx-a11y` helps catch common accessibility issues during development.
 
 ---
 
-## Content & configuration
+## Internationalization & content
 
-Resume and profile content live in **`src/data/config.ts`** (`portfolioConfig`). Updating that file updates the rendered site without changing layout code. The `App` component imports typed sections (competencies, technologies, experience, education, languages, etc.) and maps them into the `Resume` subcomponents.
+- **Where strings live** — All copy for both languages is defined in **`src/data/locales/portfolio.ts`**: two objects (`en`, `fr`) share the same `PortfolioLocaleBundle` shape (person + resume sections + **`ui`** for nav labels, section headings, buttons, and ARIA strings). Edit that file to change résumé text or UI wording in either language.
+- **How the app uses it** — `App` keeps `locale` in React state (default **`DEFAULT_LOCALE`** from config, currently `en`) and reads **`portfolioByLocale[locale]`**. No `react-i18next` (or similar) dependency: switching language is a state change plus a full re-render from the selected bundle.
+- **`src/data/config.ts`** — Re-exports the locale module for a single import path and exposes **`portfolioConfig`** as **`portfolioByLocale.en`** for any code or docs that still expect a single “default” object.
+- **Language UI** — **`LanguageDropdown`** renders the sky-bordered trigger and panel (checkmark on the active option, click-outside and Escape to close). Desktop and mobile drawer each mount an instance; the mobile instance uses a **`key`** tied to drawer open/closed so dropdown state resets when the menu collapses.
 
 ---
 

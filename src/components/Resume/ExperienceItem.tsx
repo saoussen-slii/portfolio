@@ -17,8 +17,8 @@ export function ExperienceItem({ job }: ExperienceItemProps) {
         </div>
       </div>
       <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300 marker:text-amber-700/80">
-        {job.highlights.map((h) => (
-          <li key={h}>{h}</li>
+        {job.highlights.map((h, index) => (
+          <li key={index}>{h}</li>
         ))}
       </ul>
     </article>

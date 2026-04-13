@@ -1,30 +1,34 @@
 import { Link as LinkIcon, Mail, Menu, X } from 'lucide-react'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
 import {
   CoreCompetency,
   EducationItem,
   ExperienceItem,
   KeyAccomplishment,
   SelectedTechnology,
-} from './components/Resume'
-import { ScrollReveal } from './components/ScrollReveal'
-import { VisitCounter } from './components/VisitCounter'
-import { portfolioConfig } from './data/config'
+  LanguageDropdown,
+  ScrollReveal,
+  VisitCounter,
+} from './components'
+import { DEFAULT_LOCALE, type Locale,portfolioByLocale } from './data/config'
 import { returnEmailHref, returnInitials } from './utils'
 
-const { person, resume } = portfolioConfig
-
-const headerNavLinks = [
-  { href: '#skills', label: 'Skills' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#contact', label: 'Contact' },
-] as const
-
 export default function App() {
+  const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE)
+  const { person, resume, ui } = portfolioByLocale[locale]
   const initials = returnInitials(person.name)
   const emailHref = returnEmailHref(person.email)
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.lang = locale === 'fr' ? 'fr' : 'en'
+  }, [locale])
+
+  const headerNavLinks = [
+    { href: '#skills', label: ui.nav.skills },
+    { href: '#experience', label: ui.nav.experience },
+    { href: '#contact', label: ui.nav.contact },
+  ] as const
 
   return (
     <div className="min-h-dvh bg-slate-950 text-slate-100">
@@ -38,7 +42,7 @@ export default function App() {
           <a
             href="#top-of-page"
             className="grid size-10 place-items-center rounded-xl bg-sky-950/60 font-semibold text-amber-100 ring-1 ring-sky-500/25 transition-colors hover:bg-sky-900/70 hover:ring-sky-400/35"
-            aria-label="Back to top"
+            aria-label={ui.aria.backToTop}
           >
             {initials || 'YN'}
           </a>
@@ -53,12 +57,22 @@ export default function App() {
         </div>
 
       
-        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-300 sm:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-4 text-sm font-medium text-slate-300 sm:flex sm:gap-6"
+          aria-label={ui.aria.primaryNav}
+        >
           {headerNavLinks.map(({ href, label }) => (
             <a key={href} className="transition-colors hover:text-sky-300" href={href}>
               {label}
             </a>
           ))}
+          <LanguageDropdown
+            locale={locale}
+            onLocaleChange={setLocale}
+            optionEn={ui.language.optionEn}
+            optionFr={ui.language.optionFr}
+            ariaMenuLabel={ui.aria.languageMenu}
+          />
         </nav>
 
         <button
@@ -66,7 +80,7 @@ export default function App() {
           className="inline-flex size-10 items-center justify-center rounded-lg border border-slate-500/60 bg-slate-900 text-slate-100 shadow-sm shadow-black/20 ring-1 ring-slate-400/20 hover:border-sky-400/50 hover:bg-slate-800 hover:text-sky-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 sm:hidden"
           aria-expanded={mobileNavOpen}
           aria-controls="mobile-nav"
-          aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
+          aria-label={mobileNavOpen ? ui.aria.closeMenu : ui.aria.openMenu}
           onClick={() => setMobileNavOpen((open) => !open)}
         >
           {mobileNavOpen ? <X className="size-5" strokeWidth={2.25} /> : <Menu className="size-5" strokeWidth={2.25} />}
@@ -77,7 +91,10 @@ export default function App() {
         id="mobile-nav"
         className={`border-t border-slate-800/80 bg-slate-950/95 sm:hidden ${mobileNavOpen ? 'block' : 'hidden'}`}
       >
-        <nav className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-3 text-sm font-medium text-slate-200" aria-label="Primary mobile">
+        <nav
+          className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-3 text-sm font-medium text-slate-200"
+          aria-label={ui.aria.primaryNavMobile}
+        >
           {headerNavLinks.map(({ href, label }) => (
             <a
               key={href}
@@ -88,6 +105,16 @@ export default function App() {
               {label}
             </a>
           ))}
+          <LanguageDropdown
+            key={mobileNavOpen ? 'drawer-open' : 'drawer-closed'}
+            variant="mobile"
+            locale={locale}
+            onLocaleChange={setLocale}
+            optionEn={ui.language.optionEn}
+            optionFr={ui.language.optionFr}
+            ariaMenuLabel={ui.aria.languageMenu}
+            onAfterSelect={() => setMobileNavOpen(false)}
+          />
         </nav>
       </div>
     </header>
@@ -106,20 +133,20 @@ export default function App() {
                 className="inline-flex items-center gap-2 rounded-xl bg-amber-800 px-4 py-2 text-sm font-medium text-amber-50 shadow-sm shadow-amber-950/40 hover:bg-amber-700"
                 href="#experience"
               >
-                View experience
+                {ui.buttons.viewExperience}
               </a>
               <a
                 className="inline-flex items-center gap-2 rounded-xl border border-sky-500/30 bg-sky-950/40 px-4 py-2 text-sm font-medium text-slate-100 hover:border-sky-400/40 hover:bg-sky-900/50"
                 href={emailHref}
               >
                 <Mail className="size-4" />
-                Get in touch
+                {ui.buttons.getInTouch}
               </a>
             </div>
           </div>
 
           <aside className="rounded-2xl border border-sky-500/20 bg-slate-900/60 p-5 ring-1 ring-amber-950/30">
-            <div className="text-sm font-semibold text-amber-100/90">Links</div>
+            <div className="text-sm font-semibold text-amber-100/90">{ui.linksAside}</div>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               {person.socials.map((link) => (
                 <a
@@ -138,7 +165,7 @@ export default function App() {
         </section>
         <ScrollReveal as="section" className="mt-14">
           <section id="skills">
-            <h2 className="font-serif text-lg font-semibold text-slate-50">Core competencies</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.coreCompetencies}</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {resume.coreCompetencies.map((group) => (
                 <CoreCompetency key={group.title} group={group} />
@@ -149,7 +176,7 @@ export default function App() {
         <ScrollReveal as="section" className="mt-14">
           <section id="selected-technologies">
             <h3 className="mt-10 font-serif text-lg font-semibold text-slate-50">
-              Selected technologies
+              {ui.sections.selectedTechnologies}
             </h3>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {resume.selectedTechnologies.map((group) => (
@@ -160,44 +187,41 @@ export default function App() {
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="accomplishments">
-            <h2 className="font-serif text-lg font-semibold text-slate-50">Key accomplishments</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.keyAccomplishments}</h2>
             <ul className="mt-5 space-y-3 text-sm text-slate-300">
-              {resume.keyAccomplishments.map((item) => (
-                <KeyAccomplishment key={item} text={item} />
+              {resume.keyAccomplishments.map((item, index) => (
+                <KeyAccomplishment key={index} text={item} />
               ))}
             </ul>
           </section>
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="experience">
-            <h2 className="font-serif text-lg font-semibold text-slate-50">Experience</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.experience}</h2>
             <div className="mt-5 space-y-4">
-              {resume.experience.map((job) => (
-                <ExperienceItem key={`${job.company}-${job.role}-${job.start}`} job={job} />
+              {resume.experience.map((job, index) => (
+                <ExperienceItem key={`${job.company}-${index}`} job={job} />
               ))}
             </div>
           </section>
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="education">
-            <h2 className="font-serif text-lg font-semibold text-slate-50">Education</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.education}</h2>
             <div className="mt-5 space-y-3">
-              {resume.education.map((ed) => (
-                <EducationItem
-                  key={`${ed.institution}-${ed.credential}-${ed.program ?? ''}`}
-                  education={ed}
-                />
+              {resume.education.map((ed, index) => (
+                <EducationItem key={`${ed.institution}-${index}`} education={ed} />
               ))}
             </div>
           </section>
         </ScrollReveal>
         <ScrollReveal as="section" className="mt-14">
           <section id="languages">
-            <h2 className="font-serif text-lg font-semibold text-slate-50">Languages</h2>
+            <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.languages}</h2>
             <div className="mt-5 flex flex-wrap gap-2">
-              {resume.languages.map((l) => (
+              {resume.languages.map((l, index) => (
                 <div
-                  key={l.language}
+                  key={index}
                   className="rounded-full border border-amber-800/35 bg-amber-950/40 px-3 py-1 text-xs text-amber-50/90"
                 >
                   {l.language} · {l.level}
@@ -207,9 +231,9 @@ export default function App() {
           </section>
         </ScrollReveal>
         <section id="contact" className="mt-14">
-          <h2 className="font-serif text-lg font-semibold text-slate-50">Contact</h2>
+          <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.contact}</h2>
           <p className="mt-4 text-sm text-slate-300">
-            Email:{' '}
+            {ui.contactEmailPrefix}{' '}
             <a
               className="text-sky-300 underline decoration-sky-500/50 underline-offset-4 hover:text-sky-200"
               href={emailHref}
@@ -219,8 +243,8 @@ export default function App() {
           </p>
         </section>
 
-        <section id="visitors" className="mt-14" aria-label="Visitor statistics">
-          <h2 className="font-serif text-lg font-semibold text-slate-50">Visitors</h2>
+        <section id="visitors" className="mt-14" aria-label={ui.aria.visitorsSection}>
+          <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.visitors}</h2>
           <div className="mt-4">
             <VisitCounter />
           </div>
