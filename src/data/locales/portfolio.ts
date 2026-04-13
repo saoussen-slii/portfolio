@@ -367,7 +367,7 @@ const fr: PortfolioLocaleBundle = {
       {
         company: 'Women IT Teleworkers',
         location: '',
-        role: 'Développeuse logicielle bénévole',
+        role: 'Développeuse de Logiciels bénévole',
         start: 'juin 2021',
         end: 'juin 2022',
         highlights: [
@@ -376,7 +376,7 @@ const fr: PortfolioLocaleBundle = {
         ],
       },
       {
-        company: 'Université Oumm al-Qoura',
+        company: 'Université Oumm Al-Qura',
         location: 'Arabie saoudite',
         role: 'Enseignante',
         start: 'oct. 2012',
