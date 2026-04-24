@@ -192,7 +192,7 @@ const en: PortfolioLocaleBundle = {
       {
         company: 'Engaged Partnerships for Change',
         location: 'Tunisia',
-        role: 'Audit Mission Agent',
+        role: 'Audit Mission Agent for 3 days',
         start: 'Feb 2010',
         end: 'Feb 2010',
         highlights: [
@@ -388,7 +388,7 @@ const fr: PortfolioLocaleBundle = {
       {
         company: 'Engaged Partnerships for Change',
         location: 'Tunisie',
-        role: 'Agente de mission d’audit',
+        role: 'Agente de mission d’audit pendant 3 jours',
         start: 'févr. 2010',
         end: 'févr. 2010',
         highlights: [
