@@ -1,16 +1,19 @@
-import { Check, ChevronDown } from 'lucide-react'
+import { Check, ChevronDown, Globe } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
 
 import type { Locale } from '../data/config'
 
 const triggerClassName =
-  'inline-flex min-w-[7.5rem] shrink-0 items-center justify-between gap-2 rounded-lg border border-sky-500/30 bg-sky-950/40 px-3 py-1.5 text-sm font-medium text-slate-100 shadow-sm shadow-sky-950/30 transition-colors hover:border-sky-400/40 hover:bg-sky-900/50 hover:text-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
+  'inline-flex min-w-[7.5rem] shrink-0 items-center justify-between  rounded-lg border border-sky-500/30 bg-sky-950/40 px-3 py-1.5 text-sm font-medium text-slate-100 shadow-sm shadow-sky-950/30 transition-colors hover:border-sky-400/40 hover:bg-sky-900/50 hover:text-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
+
+const iconTriggerClassName =
+  'inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-sky-500/30 bg-sky-950/40 text-slate-100 shadow-sm shadow-sky-950/30 transition-colors hover:border-sky-400/40 hover:bg-sky-900/50 hover:text-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
 
 const menuClassName =
   'absolute z-[60] mt-1 min-w-[10rem] rounded-lg border border-sky-500/30 bg-slate-950/95 py-1 shadow-lg shadow-black/40 ring-1 ring-slate-800/80 backdrop-blur-md'
 
 const itemClassName =
-  'flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-slate-200 transition-colors hover:bg-sky-950/60 hover:text-sky-100 aria-checked:bg-sky-900/50 aria-checked:text-sky-100'
+  'flex w-full items-center  px-3 py-2 text-left text-sm text-slate-200 transition-colors hover:bg-sky-950/60 hover:text-sky-100 aria-checked:bg-sky-900/50 aria-checked:text-sky-100'
 
 type LanguageDropdownProps = {
   locale: Locale
@@ -20,6 +23,7 @@ type LanguageDropdownProps = {
   ariaMenuLabel: string
   onAfterSelect?: () => void
   variant?: 'header' | 'mobile'
+  trigger?: 'text' | 'icon'
 }
 
 export function LanguageDropdown({
@@ -30,6 +34,7 @@ export function LanguageDropdown({
   ariaMenuLabel,
   onAfterSelect,
   variant = 'header',
+  trigger = 'text',
 }: LanguageDropdownProps) {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
@@ -65,23 +70,44 @@ export function LanguageDropdown({
 
   const currentLabel = locale === 'en' ? optionEn : optionFr
   const isMobile = variant === 'mobile'
+  const isIconTrigger = trigger === 'icon'
 
   return (
     <div ref={rootRef} className={isMobile ? 'relative mt-2 w-full' : 'relative'}>
       <button
         type="button"
-        className={isMobile ? `${triggerClassName} w-full` : triggerClassName}
+        className={
+          isIconTrigger
+            ? isMobile
+              ? `${triggerClassName} w-full`
+              : iconTriggerClassName
+            : isMobile
+              ? `${triggerClassName} w-full`
+              : triggerClassName
+        }
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls={menuId}
         aria-label={ariaMenuLabel}
         onClick={() => setOpen((value) => !value)}
       >
-        <span className="truncate">{currentLabel}</span>
-        <ChevronDown
-          className={`size-4 shrink-0 text-slate-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-          aria-hidden
-        />
+        {isIconTrigger ? (
+          <span className="inline-flex items-center ">
+            <Globe className="size-5" aria-hidden />
+            <ChevronDown
+              className={`size-4 shrink-0 text-slate-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+              aria-hidden
+            />
+          </span>
+        ) : (
+          <>
+            <span className="truncate">{currentLabel}</span>
+            <ChevronDown
+              className={`size-4 shrink-0 text-slate-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+              aria-hidden
+            />
+          </>
+        )}
       </button>
 
       {open ? (

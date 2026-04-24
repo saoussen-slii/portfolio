@@ -5,9 +5,9 @@ import {
   EducationItem,
   ExperienceItem,
   KeyAccomplishment,
-  SelectedTechnology,
   LanguageDropdown,
   ScrollReveal,
+  SelectedTechnology,
   VisitCounter,
 } from './components'
 import { DEFAULT_LOCALE, type Locale,portfolioByLocale } from './data/config'
@@ -67,6 +67,7 @@ export default function App() {
             </a>
           ))}
           <LanguageDropdown
+            trigger="icon"
             locale={locale}
             onLocaleChange={setLocale}
             optionEn={ui.language.optionEn}
@@ -74,6 +75,16 @@ export default function App() {
             ariaMenuLabel={ui.aria.languageMenu}
           />
         </nav>
+
+        <div className="flex items-center gap-2 sm:hidden">
+          <LanguageDropdown
+            trigger="icon"
+            locale={locale}
+            onLocaleChange={setLocale}
+            optionEn={ui.language.optionEn}
+            optionFr={ui.language.optionFr}
+            ariaMenuLabel={ui.aria.languageMenu}
+          />
 
         <button
           type="button"
@@ -85,6 +96,7 @@ export default function App() {
         >
           {mobileNavOpen ? <X className="size-5" strokeWidth={2.25} /> : <Menu className="size-5" strokeWidth={2.25} />}
         </button>
+        </div>
       </div>
 
       <div
@@ -105,16 +117,6 @@ export default function App() {
               {label}
             </a>
           ))}
-          <LanguageDropdown
-            key={mobileNavOpen ? 'drawer-open' : 'drawer-closed'}
-            variant="mobile"
-            locale={locale}
-            onLocaleChange={setLocale}
-            optionEn={ui.language.optionEn}
-            optionFr={ui.language.optionFr}
-            ariaMenuLabel={ui.aria.languageMenu}
-            onAfterSelect={() => setMobileNavOpen(false)}
-          />
         </nav>
       </div>
     </header>
