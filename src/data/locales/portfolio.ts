@@ -203,6 +203,13 @@ const en: PortfolioLocaleBundle = {
     education: [
       {
         credential: 'Certificate',
+        program: 'Generative AI and ML',
+        institution: 'Illinois Institute of Technology',
+        location: 'Remote',
+        date: 'May - Dec 2026',
+      },
+      {
+        credential: 'Certificate',
         program: 'Web Development Program',
         institution: 'Lighthouse Labs',
         location: 'Canada',
@@ -397,6 +404,13 @@ const fr: PortfolioLocaleBundle = {
       },
     ],
     education: [
+      {
+        credential: 'Attestation',
+        program: 'IA générative et ML',
+        institution: 'Illinois Institute of Technology',
+        location: 'À distance',
+        date: 'mai - déc. 2026',
+      },
       {
         credential: 'Attestation',
         program: 'Programme de développement web',
