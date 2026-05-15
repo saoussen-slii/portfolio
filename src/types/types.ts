@@ -29,3 +29,10 @@ export type LanguageProficiency = {
   language: string
   level: string
 }
+
+export type Project = {
+  name: string
+  description: string
+  tech: string[]
+  link?: string
+}

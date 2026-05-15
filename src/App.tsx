@@ -6,6 +6,7 @@ import {
   ExperienceItem,
   KeyAccomplishment,
   LanguageDropdown,
+  ProjectCard,
   ScrollReveal,
   SelectedTechnology,
   VisitCounter,
@@ -27,6 +28,7 @@ export default function App() {
   const headerNavLinks = [
     { href: '#skills', label: ui.nav.skills },
     { href: '#experience', label: ui.nav.experience },
+    { href: '#projects', label: ui.nav.projects },
     { href: '#contact', label: ui.nav.contact },
   ] as const
 
@@ -203,6 +205,16 @@ export default function App() {
             <div className="mt-5 space-y-4">
               {resume.experience.map((job, index) => (
                 <ExperienceItem key={`${job.company}-${index}`} job={job} />
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
+        <ScrollReveal as="section" className="mt-14">
+          <section id="projects">
+            <h2 className="font-serif text-lg font-semibold text-slate-50">{ui.sections.projects}</h2>
+            <div className="mt-5 grid gap-6 md:grid-cols-2">
+              {resume.projects.map((project, index) => (
+                <ProjectCard key={`${project.name}-${index}`} project={project} linkLabel={ui.buttons.learnMore} />
               ))}
             </div>
           </section>
