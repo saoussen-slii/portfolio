@@ -108,6 +108,21 @@ const en: PortfolioLocaleBundle = {
         ],
       },
       {
+        title: 'Troubleshooting & Analysis',
+        items: [
+          'Chrome DevTools',
+          'Server Log Analysis',
+          'Jenkins Logs',
+          'React Component Debugging',
+          'Eclipse IDE',
+          'Postman (API Testing)',
+        ],
+      },
+      {
+        title: 'Documentation & Workflow Optimization',
+        items: ['Bookstack', 'Jira JQL', 'LinearB (Workflow Waste Identification)'],
+      },
+      {
         title: 'AI-Assisted Engineering',
         items: ['Cursor', 'GitHub Copilot'],
       },
@@ -143,7 +158,18 @@ const en: PortfolioLocaleBundle = {
       },
       {
         title: 'Tools',
-        items: ['Git', 'GitLab', 'Jira', 'Cursor', 'GitHub Copilot', 'PITest'],
+        items: [
+          'Git',
+          'GitLab',
+          'Jira',
+          'Cursor',
+          'GitHub Copilot',
+          'PITest',
+          'Postman',
+          'LinearB',
+          'Bookstack',
+          'JQL',
+        ],
       },
     ],
     keyAccomplishments: [
@@ -170,7 +196,7 @@ const en: PortfolioLocaleBundle = {
       },
       {
         company: 'Women IT Teleworkers',
-        location: '',
+        location: 'Ottawa (ON)',
         role: 'Volunteer Software Developer',
         start: 'Jun 2021',
         end: 'Jun 2022',
@@ -311,12 +337,31 @@ const fr: PortfolioLocaleBundle = {
         ],
       },
       {
+        title: 'Dépannage & Analyse',
+        items: [
+          'Chrome DevTools',
+          'Analyse des journaux serveurs',
+          'Journaux Jenkins',
+          'Débogage de composants React',
+          'Eclipse IDE',
+          'Postman (tests API)',
+        ],
+      },
+      {
+        title: 'Documentation & Optimisation des flux',
+        items: ['Bookstack', 'Jira JQL', 'LinearB (identification du gaspillage de flux)'],
+      },
+      {
         title: 'Ingénierie assistée par l’IA',
         items: ['Cursor', 'GitHub Copilot'],
       },
       {
         title: 'Architecture',
-        items: ['Domain-Driven Design (DDD)', 'Architecture hexagonale (ports et adaptateurs)', 'Systèmes modulaires OSGi'],
+        items: [
+          'Domain-Driven Design (DDD)',
+          'Architecture hexagonale (ports et adaptateurs)',
+          'Systèmes modulaires OSGi',
+        ],
       },
     ],
     selectedTechnologies: [
@@ -346,7 +391,18 @@ const fr: PortfolioLocaleBundle = {
       },
       {
         title: 'Outils',
-        items: ['Git', 'GitLab', 'Jira', 'Cursor', 'GitHub Copilot', 'PITest'],
+        items: [
+          'Git',
+          'GitLab',
+          'Jira',
+          'Cursor',
+          'GitHub Copilot',
+          'PITest',
+          'Postman',
+          'LinearB',
+          'Bookstack',
+          'JQL',
+        ],
       },
     ],
     keyAccomplishments: [
@@ -373,7 +429,7 @@ const fr: PortfolioLocaleBundle = {
       },
       {
         company: 'Women IT Teleworkers',
-        location: '',
+        location: 'Ottawa (ON)',
         role: 'Développeuse de Logiciels bénévole',
         start: 'juin 2021',
         end: 'juin 2022',
