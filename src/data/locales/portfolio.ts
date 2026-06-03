@@ -84,7 +84,7 @@ const en: PortfolioLocaleBundle = {
     coreCompetencies: [
       {
         title: 'Full-Stack Development',
-        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'GraphQL', 'Material UI'],
+        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'MongoDB', 'GraphQL', 'Material UI'],
       },
       {
         title: 'Agile Leadership',
@@ -157,6 +157,7 @@ const en: PortfolioLocaleBundle = {
           'SQL',
           'MariaDB',
           'PostgreSQL',
+          'MongoDB',
           'Maven (multi-module)',
         ],
       },
@@ -206,7 +207,7 @@ const en: PortfolioLocaleBundle = {
         end: 'Jun 2022',
         highlights: [
           'Project "Kids First": Designed the frontend interfaces and contributed to core UI/UX discussions to improve user engagement.',
-          'Database Engineering: Designed and implemented the PostgreSQL database schema to support project data requirements.',
+          'Database Engineering: Designed and implemented the MongoDB database schema to support project data requirements.',
         ],
       },
       {
@@ -337,7 +338,7 @@ const fr: PortfolioLocaleBundle = {
     coreCompetencies: [
       {
         title: 'Développement full-stack',
-        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'GraphQL', 'Material UI'],
+        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'MongoDB', 'GraphQL', 'Material UI'],
       },
       {
         title: 'Leadership agile',
@@ -414,6 +415,7 @@ const fr: PortfolioLocaleBundle = {
           'SQL',
           'MariaDB',
           'PostgreSQL',
+          'MongoDB',
           'Maven (multi-modules)',
         ],
       },
@@ -463,7 +465,7 @@ const fr: PortfolioLocaleBundle = {
         end: 'juin 2022',
         highlights: [
           'Projet « Kids First » : conception des interfaces front-end et contribution aux échanges UI/UX pour l’engagement des utilisateurs.',
-          'Ingénierie des données : conception et mise en œuvre du schéma PostgreSQL pour les besoins du projet.',
+          'Ingénierie des données : conception et mise en œuvre du schéma MongoDB pour les besoins du projet.',
         ],
       },
       {
