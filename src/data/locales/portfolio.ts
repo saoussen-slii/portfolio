@@ -1,4 +1,11 @@
-import type { Education, Experience, LanguageProficiency, SkillGroup, SocialLink , Project } from '../../types'
+import type {
+  Education,
+  Experience,
+  LanguageProficiency,
+  SkillGroup,
+  SocialLink,
+  Project,
+} from '../../types'
 
 export type Locale = 'en' | 'fr'
 
@@ -59,7 +66,7 @@ export type PortfolioLocaleBundle = {
     selectedTechnologies: SkillGroup[]
     keyAccomplishments: string[]
     experience: Experience[]
-    projects: Project[]     
+    projects: Project[]
     education: Education[]
     languages: LanguageProficiency[]
   }
@@ -84,7 +91,17 @@ const en: PortfolioLocaleBundle = {
     coreCompetencies: [
       {
         title: 'Full-Stack Development',
-        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'MongoDB', 'GraphQL', 'Material UI'],
+        items: [
+          'TypeScript',
+          'Java',
+          'SQL',
+          'React',
+          'Prisma',
+          'PostgreSQL',
+          'MongoDB',
+          'GraphQL',
+          'Material UI',
+        ],
       },
       {
         title: 'Agile Leadership',
@@ -132,7 +149,11 @@ const en: PortfolioLocaleBundle = {
       },
       {
         title: 'Architecture',
-        items: ['Domain-Driven Design (DDD)', 'Hexagonal (Ports & Adapters)', 'OSGi Modular Systems'],
+        items: [
+          'Domain-Driven Design (DDD)',
+          'Hexagonal (Ports & Adapters)',
+          'OSGi Modular Systems',
+        ],
       },
     ],
     selectedTechnologies: [
@@ -232,28 +253,35 @@ const en: PortfolioLocaleBundle = {
       },
     ],
     projects: [
-  {
-    name: "Quorum – Broadcast Production Control System",
-    description:
-      "Enterprise-scale modular platform built with Java OSGi and React/TypeScript. Contributed to domain-driven modules, REST/WebSocket adapters, and complex UI workflows for live production environments.",
-    tech: ["Java", "OSGi", "Maven", "Hibernate", "React", "TypeScript", "WebSockets"],
-    link: "Proprietary internal project (code not public)"
-  },
-  {
-    name: "Spyglass – Network Monitoring & Analytics Dashboard",
-    description:
-      "Internal analytics dashboard built with React, Prisma, and Chart.js. Implemented data visualizations and integrated Jira REST APIs to provide workflow and performance insights.",
-    tech: ["React", "Prisma", "Chart.js", "Node.js", "Jira REST API"],
-    link: "Proprietary internal project (code not public)"
-  },
-  {
-    name: "Portfolio Website",
-    description:
-      "A personal portfolio website built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion to showcase experience, projects, and contact details.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
-    link: "https://github.com/saoussen-slii/portfolio"
-  },
-],
+      {
+        name: 'Quorum – Broadcast Production Control System',
+        description:
+          'Enterprise-scale modular platform built with Java OSGi and React/TypeScript. Contributed to domain-driven modules, REST/WebSocket adapters, and complex UI workflows for live production environments.',
+        tech: ['Java', 'OSGi', 'Maven', 'Hibernate', 'React', 'TypeScript', 'WebSockets'],
+        link: 'Proprietary internal project (code not public)',
+      },
+      {
+        name: 'Spyglass – Network Monitoring & Analytics Dashboard',
+        description:
+          'Internal analytics dashboard built with React, Prisma, and Chart.js. Implemented data visualizations and integrated Jira REST APIs to provide workflow and performance insights.',
+        tech: ['React', 'Prisma', 'Chart.js', 'Node.js', 'Jira REST API'],
+        link: 'Proprietary internal project (code not public)',
+      },
+      {
+        name: 'Portfolio Website',
+        description:
+          'A personal portfolio website built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion to showcase experience, projects, and contact details.',
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+        link: 'https://github.com/saoussen-slii/portfolio',
+      },
+      {
+        name: 'Orchestrate – Multimodal Claims Verification',
+        description:
+          'Modular Python pipeline for the HackerRank Orchestrate hackathon (June 2026). Image, conversation, and user history analysis to validate damage claims (car, computer, parcel). Perception/decision architecture: a multimodal VLM call (GPT-4o) per claim for structured visual extraction, then a deterministic rule engine for status, severity, and risk flags. Testable pipeline without API via a CSV mock.',
+        tech: ['Python', 'OpenAI API', 'GPT-4o', 'VLM', 'Pillow', 'CSV', 'Dataclasses', 'unittest'],
+        link: 'https://github.com/saoussen-slii/hackerrank-orchestrate-june26',
+      },
+    ],
     education: [
       {
         credential: 'Certificate',
@@ -315,7 +343,11 @@ const en: PortfolioLocaleBundle = {
       visitors: 'Visitors',
     },
     linksAside: 'Links',
-    buttons: { viewExperience: 'View experience', getInTouch: 'Get in touch', learnMore: 'Learn more' },
+    buttons: {
+      viewExperience: 'View experience',
+      getInTouch: 'Get in touch',
+      learnMore: 'Learn more',
+    },
     contactEmailPrefix: 'Email:',
   },
 }
@@ -338,7 +370,17 @@ const fr: PortfolioLocaleBundle = {
     coreCompetencies: [
       {
         title: 'Développement full-stack',
-        items: ['TypeScript', 'Java', 'SQL', 'React', 'Prisma', 'PostgreSQL', 'MongoDB', 'GraphQL', 'Material UI'],
+        items: [
+          'TypeScript',
+          'Java',
+          'SQL',
+          'React',
+          'Prisma',
+          'PostgreSQL',
+          'MongoDB',
+          'GraphQL',
+          'Material UI',
+        ],
       },
       {
         title: 'Leadership agile',
@@ -490,28 +532,35 @@ const fr: PortfolioLocaleBundle = {
       },
     ],
     projects: [
-  {
-    name: "Quorum – Système de contrôle de production",
-    description:
-      "Plateforme modulaire à grande échelle basée sur Java OSGi et React/TypeScript. Contribution aux modules DDD, aux adaptateurs REST/WebSocket et aux interfaces complexes pour la production en direct.",
-    tech: ["Java", "OSGi", "Maven", "Hibernate", "React", "TypeScript", "WebSockets"],
-    link: "Projet interne propriétaire (code non public)"
-  },
-  {
-    name: "Spyglass – Tableau de bord d’analyse et de supervision",
-    description:
-      "Tableau de bord interne construit avec React, Prisma et Chart.js. Développement de visualisations de données et intégration des API REST Jira pour fournir des indicateurs de performance.",
-    tech: ["React", "Prisma", "Chart.js", "Node.js", "API REST Jira"],
-    link: "Projet interne propriétaire (code non public)"
-  },
-  {
-    name: "Site Portfolio",
-    description:
-      "Site portfolio personnel construit avec React, TypeScript, Vite, Tailwind CSS et Framer Motion pour présenter l’expérience, les projets et les coordonnées.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
-    link: "https://github.com/saoussen-slii/portfolio"
-  },
-],
+      {
+        name: 'Quorum – Système de contrôle de production',
+        description:
+          'Plateforme modulaire à grande échelle basée sur Java OSGi et React/TypeScript. Contribution aux modules DDD, aux adaptateurs REST/WebSocket et aux interfaces complexes pour la production en direct.',
+        tech: ['Java', 'OSGi', 'Maven', 'Hibernate', 'React', 'TypeScript', 'WebSockets'],
+        link: 'Projet interne propriétaire (code non public)',
+      },
+      {
+        name: 'Spyglass – Tableau de bord d’analyse et de supervision',
+        description:
+          'Tableau de bord interne construit avec React, Prisma et Chart.js. Développement de visualisations de données et intégration des API REST Jira pour fournir des indicateurs de performance.',
+        tech: ['React', 'Prisma', 'Chart.js', 'Node.js', 'API REST Jira'],
+        link: 'Projet interne propriétaire (code non public)',
+      },
+      {
+        name: 'Site Portfolio',
+        description:
+          'Site portfolio personnel construit avec React, TypeScript, Vite, Tailwind CSS et Framer Motion pour présenter l’expérience, les projets et les coordonnées.',
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+        link: 'https://github.com/saoussen-slii/portfolio',
+      },
+      {
+        name: 'Orchestrate – Vérification multimodale de sinistres',
+        description:
+          'Pipeline Python modulaire pour le hackathon HackerRank Orchestrate (juin 2026). Analyse d’images, de conversations et d’historiques utilisateur pour valider des réclamations de dommages (voiture, ordinateur, colis). Architecture perception/décision : un appel VLM multimodal (GPT-4o) par sinistre pour l’extraction visuelle structurée, puis moteur de règles déterministe pour le statut, la sévérité et les drapeaux de risque. Pipeline testable sans API via un mock CSV.',
+        tech: ['Python', 'OpenAI API', 'GPT-4o', 'VLM', 'Pillow', 'CSV', 'Dataclasses', 'unittest'],
+        link: 'https://github.com/saoussen-slii/hackerrank-orchestrate-june26',
+      },
+    ],
 
     education: [
       {
@@ -551,7 +600,12 @@ const fr: PortfolioLocaleBundle = {
     ],
   },
   ui: {
-    nav: { skills: 'Compétences', experience: 'Expérience', projects: 'Projets', contact: 'Contact' },
+    nav: {
+      skills: 'Compétences',
+      experience: 'Expérience',
+      projects: 'Projets',
+      contact: 'Contact',
+    },
     language: { optionEn: 'Anglais', optionFr: 'Français' },
     aria: {
       backToTop: 'Retour en haut de page',
@@ -574,7 +628,11 @@ const fr: PortfolioLocaleBundle = {
       visitors: 'Visiteurs',
     },
     linksAside: 'Liens',
-    buttons: { viewExperience: 'Voir l’expérience', getInTouch: 'Me contacter', learnMore: 'En savoir plus' },
+    buttons: {
+      viewExperience: 'Voir l’expérience',
+      getInTouch: 'Me contacter',
+      learnMore: 'En savoir plus',
+    },
     contactEmailPrefix: 'Courriel :',
   },
 }
