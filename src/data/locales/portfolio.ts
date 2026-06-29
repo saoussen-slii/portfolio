@@ -293,7 +293,7 @@ const en: PortfolioLocaleBundle = {
       {
         credential: 'Certificate',
         program: 'Generative AI and ML',
-        institution: 'Illinois Institute of Technology',
+        institution: 'Illinois Institute of Technology & Edureka',
         location: 'Remote',
         date: 'May - Dec 2026',
       },
@@ -580,7 +580,7 @@ const fr: PortfolioLocaleBundle = {
       {
         credential: 'Attestation',
         program: 'IA générative et ML',
-        institution: 'Illinois Institute of Technology',
+        institution: 'Illinois Institute of Technology & Edureka',
         location: 'À distance',
         date: 'mai - déc. 2026',
       },
