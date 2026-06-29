@@ -281,6 +281,13 @@ const en: PortfolioLocaleBundle = {
         tech: ['Python', 'OpenAI API', 'GPT-4o', 'VLM', 'Pillow', 'CSV', 'Dataclasses', 'unittest'],
         link: 'https://github.com/saoussen-slii/hackerrank-orchestrate-june26',
       },
+      {
+        name: 'PDF Summarize Agent - My PDF Agent',
+        description:
+          'Web app that extracts PDF text locally in the browser with pdfjs-dist, then sends it to OpenAI (gpt-4o-mini) for concise bullet-point summaries. Shows a preview of the extracted text alongside the summary, with automatic retry on API rate limits (429).',
+        tech: ['React', 'TypeScript', 'Vite', 'pdfjs-dist', 'OpenAI API'],
+        link: 'https://github.com/saoussen-slii/my-pdf-agent/tree/main/my-pdf-agent',
+      },
     ],
     education: [
       {
@@ -559,6 +566,13 @@ const fr: PortfolioLocaleBundle = {
           'Pipeline Python modulaire pour le hackathon HackerRank Orchestrate (juin 2026). Analyse d’images, de conversations et d’historiques utilisateur pour valider des réclamations de dommages (voiture, ordinateur, colis). Architecture perception/décision : un appel VLM multimodal (GPT-4o) par sinistre pour l’extraction visuelle structurée, puis moteur de règles déterministe pour le statut, la sévérité et les drapeaux de risque. Pipeline testable sans API via un mock CSV.',
         tech: ['Python', 'OpenAI API', 'GPT-4o', 'VLM', 'Pillow', 'CSV', 'Dataclasses', 'unittest'],
         link: 'https://github.com/saoussen-slii/hackerrank-orchestrate-june26',
+      },
+      {
+        name: 'PDF Summarize Agent - My PDF Agent',
+        description:
+          'Application web qui extrait le texte des PDF localement dans le navigateur avec pdfjs-dist, puis l’envoie à OpenAI (gpt-4o-mini) pour produire un résumé concis en puces. Aperçu du texte extrait à côté du résumé, avec nouvelle tentative automatique en cas de limite de débit API (429).',
+        tech: ['React', 'TypeScript', 'Vite', 'pdfjs-dist', 'API OpenAI'],
+        link: 'https://github.com/saoussen-slii/my-pdf-agent/tree/main/my-pdf-agent',
       },
     ],
 

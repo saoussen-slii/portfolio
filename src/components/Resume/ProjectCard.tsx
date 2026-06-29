@@ -12,6 +12,7 @@ export function ProjectCard({ project, linkLabel }: ProjectCardProps) {
     if (name.includes('spyglass')) return '/projects/no_public_image.png'
     if (name.includes('portfolio')) return '/projects/portfolio.png'
     if (name.includes('orchestrate')) return '/projects/hackerrank-orchestrate2026.jpg'
+    if (name.includes('pdf')) return '/projects/pdf_summarizer_agent.png'
     return undefined
   }
 
