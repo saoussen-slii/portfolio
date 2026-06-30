@@ -13,6 +13,7 @@ export function ProjectCard({ project, linkLabel }: ProjectCardProps) {
     if (name.includes('portfolio')) return '/projects/portfolio.png'
     if (name.includes('orchestrate')) return '/projects/hackerrank-orchestrate2026.jpg'
     if (name.includes('pdf summarize')) return '/projects/pdf_summarizer_agent.png'
+    if (name.includes('my chat app')) return '/projects/my_chat_app.png'
     return undefined
   }
 

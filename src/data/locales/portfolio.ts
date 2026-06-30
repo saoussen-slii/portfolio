@@ -96,6 +96,8 @@ const en: PortfolioLocaleBundle = {
           'Java',
           'SQL',
           'React',
+          'NestJS',
+          'Socket.io',
           'Prisma',
           'PostgreSQL',
           'MongoDB',
@@ -145,7 +147,7 @@ const en: PortfolioLocaleBundle = {
       },
       {
         title: 'AI-Assisted Engineering',
-        items: ['Cursor', 'GitHub Copilot'],
+        items: ['Cursor', 'GitHub Copilot', 'OpenAI API'],
       },
       {
         title: 'Architecture',
@@ -173,6 +175,8 @@ const en: PortfolioLocaleBundle = {
         title: 'Backend & Data',
         items: [
           'Java',
+          'NestJS',
+          'Socket.io',
           'Node.js',
           'Prisma ORM',
           'SQL',
@@ -288,6 +292,24 @@ const en: PortfolioLocaleBundle = {
         tech: ['React', 'TypeScript', 'Vite', 'pdfjs-dist', 'OpenAI API'],
         link: 'https://github.com/saoussen-slii/my-pdf-agent/tree/main/my-pdf-agent',
       },
+      {
+        name: 'My Chat App',
+        description:
+          'Full-stack chat platform with real-time messaging via Socket.io. React + Vite frontend and NestJS API with PostgreSQL and Prisma, modular frontend/backend separation, Dockerized local Postgres, responsive UI, type-safe database access, and Prisma Studio for schema visualization.',
+        tech: [
+          'React',
+          'TypeScript',
+          'Vite',
+          'Tailwind CSS',
+          'NestJS',
+          'Socket.io',
+          'PostgreSQL',
+          'Prisma',
+          'Docker',
+          'pnpm',
+        ],
+        link: 'https://github.com/saoussen-slii/my-chat-app',
+      },
     ],
     education: [
       {
@@ -382,6 +404,8 @@ const fr: PortfolioLocaleBundle = {
           'Java',
           'SQL',
           'React',
+          'NestJS',
+          'Socket.io',
           'Prisma',
           'PostgreSQL',
           'MongoDB',
@@ -431,7 +455,7 @@ const fr: PortfolioLocaleBundle = {
       },
       {
         title: 'Ingénierie assistée par l’IA',
-        items: ['Cursor', 'GitHub Copilot'],
+        items: ['Cursor', 'GitHub Copilot', 'OpenAI API'],
       },
       {
         title: 'Architecture',
@@ -459,6 +483,8 @@ const fr: PortfolioLocaleBundle = {
         title: 'Back-end et données',
         items: [
           'Java',
+          'NestJS',
+          'Socket.io',
           'Node.js',
           'ORM Prisma',
           'SQL',
@@ -573,6 +599,24 @@ const fr: PortfolioLocaleBundle = {
           'Application web qui extrait le texte des PDF localement dans le navigateur avec pdfjs-dist, puis l’envoie à OpenAI (gpt-4o-mini) pour produire un résumé concis en puces. Aperçu du texte extrait à côté du résumé, avec nouvelle tentative automatique en cas de limite de débit API (429).',
         tech: ['React', 'TypeScript', 'Vite', 'pdfjs-dist', 'API OpenAI'],
         link: 'https://github.com/saoussen-slii/my-pdf-agent/tree/main/my-pdf-agent',
+      },
+      {
+        name: 'My Chat App',
+        description:
+          'Plateforme de clavardage full-stack avec messagerie en temps réel via Socket.io. Frontend React + Vite et API NestJS avec PostgreSQL et Prisma, séparation modulaire frontend/backend, Postgres local conteneurisé avec Docker, interface responsive, accès typé à la base de données et visualisation du schéma avec Prisma Studio.',
+        tech: [
+          'React',
+          'TypeScript',
+          'Vite',
+          'Tailwind CSS',
+          'NestJS',
+          'Socket.io',
+          'PostgreSQL',
+          'Prisma',
+          'Docker',
+          'pnpm',
+        ],
+        link: 'https://github.com/saoussen-slii/my-chat-app',
       },
     ],
 
