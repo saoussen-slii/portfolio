@@ -20,6 +20,7 @@
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Saoussen Slii" />
+    <meta name="google-site-verification" content="6694b1a7772b8aa3" />
 
     <title>Saoussen Slii — Software Developer | Portfolio</title>
 
@@ -46,39 +47,43 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Saoussen Slii",
-        "url": "https://saoussen-slii.vercel.app/",
-        "jobTitle": "Software Developer",
-        "email": "sawsan_sli3i@live.fr",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Ottawa",
-          "addressRegion": "ON",
-          "addressCountry": "CA"
-        },
-        "sameAs": ["https://github.com/saoussen-slii", "https://www.linkedin.com/in/saoussen-slii/"],
-        "image": "https://saoussen-slii.vercel.app/projects/portfolio.png"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://saoussen-slii.vercel.app/#person",
+            "name": "Saoussen Slii",
+            "alternateName": ["Sawsan Slii", "Saoussen Sli"],
+            "givenName": "Saoussen",
+            "familyName": "Slii",
+            "url": "https://saoussen-slii.vercel.app/",
+            "jobTitle": "Software Developer",
+            "email": "sawsan_sli3i@live.fr",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ottawa",
+              "addressRegion": "ON",
+              "addressCountry": "CA"
+            },
+            "sameAs": [
+              "https://github.com/saoussen-slii",
+              "https://www.linkedin.com/in/saoussen-slii/"
+            ],
+            "image": "https://saoussen-slii.vercel.app/projects/portfolio.png"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://saoussen-slii.vercel.app/#website",
+            "name": "Saoussen Slii — Software Developer Portfolio",
+            "url": "https://saoussen-slii.vercel.app/",
+            "description": "Portfolio of Saoussen Slii, bilingual software developer in Ottawa, ON.",
+            "author": { "@id": "https://saoussen-slii.vercel.app/#person" }
+          }
+        ]
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <main class="sr-only">
-      <h1>Saoussen Slii — Software Developer in Ottawa, ON</h1>
-      <p>
-        Bilingual software developer specializing in TypeScript, React, Java, and full-stack web
-        applications for broadcast and live production. Portfolio, experience, projects, and contact
-        information.
-      </p>
-      <p>
-        <a href="https://github.com/saoussen-slii">GitHub</a>
-        ·
-        <a href="https://www.linkedin.com/in/saoussen-slii/">LinkedIn</a>
-        ·
-        <a href="mailto:sawsan_sli3i@live.fr">sawsan_sli3i@live.fr</a>
-      </p>
-    </main>
     <footer class="site-footer border-t border-slate-800/50 bg-slate-950 py-10">
       <div class="mx-auto flex max-w-5xl justify-center px-6">
         <!-- 613 Webring -->
