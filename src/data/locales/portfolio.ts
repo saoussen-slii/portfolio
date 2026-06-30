@@ -270,8 +270,8 @@ const en: PortfolioLocaleBundle = {
       {
         name: 'Portfolio Website',
         description:
-          'A personal portfolio website built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion to showcase experience, projects, and contact details.',
-        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+          'A personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS to showcase experience, projects, and contact details.',
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
         link: 'https://github.com/saoussen-slii/portfolio',
       },
       {
@@ -556,8 +556,8 @@ const fr: PortfolioLocaleBundle = {
       {
         name: 'Site Portfolio',
         description:
-          'Site portfolio personnel construit avec React, TypeScript, Vite, Tailwind CSS et Framer Motion pour présenter l’expérience, les projets et les coordonnées.',
-        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+          'Site portfolio personnel construit avec React, TypeScript, Vite et Tailwind CSS pour présenter l’expérience, les projets et les coordonnées.',
+        tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
         link: 'https://github.com/saoussen-slii/portfolio',
       },
       {

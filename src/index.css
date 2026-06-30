@@ -24,3 +24,24 @@ body {
 .site-footer {
   flex-shrink: 0;
 }
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

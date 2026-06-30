@@ -9,7 +9,7 @@ export function ProjectCard({ project, linkLabel }: ProjectCardProps) {
   const getImageSrc = (projectName: string) => {
     const name = projectName.toLowerCase()
     if (name.includes('quorum')) return '/projects/quorum.png'
-    if (name.includes('spyglass')) return '/projects/no_public_image.png'
+    if (name.includes('spyglass')) return '/projects/no_public_image.svg'
     if (name.includes('portfolio')) return '/projects/portfolio.png'
     if (name.includes('orchestrate')) return '/projects/hackerrank-orchestrate2026.jpg'
     if (name.includes('pdf summarize')) return '/projects/pdf_summarizer_agent.png'
@@ -29,6 +29,8 @@ export function ProjectCard({ project, linkLabel }: ProjectCardProps) {
               src={imageSrc}
               alt={`${project.name} screenshot`}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="w-full h-full bg-slate-800/50 flex items-center justify-center">
